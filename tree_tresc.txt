@@ -1,0 +1,121 @@
+Zadanie polega na implementacji klasy szablonowej Tree, która reprezentuje
+drzewo binarne.
+
+Drzewo powinno dostarczać standardowe operacje funkcyjne:
+
+* fold(operation, init)
+    Oblicza i zwraca wynik operacji trzyargumentowej operation zaaplikowany
+    rekurencyjnie do drzewa w porządku przechodzenia postfiksowym
+    (ang. post-order).
+    Dla węzła pustego zwraca wartość init, natomiast dla węzła z wartością
+    zwraca wynik operation zaaplikowanej do (1) wartości węzła, (2) wyniku
+    fold dla lewego poddrzewa, (3) wyniku fold dla prawego poddrzewa.
+    W miarę możliwości należy używać tej operacji fold przy implementowaniu
+    pozostałych operacji.
+
+* filter(predicate)
+    Tworzy nowe drzewo Tree na podstawie istniejącego, zawierające jedynie
+    elementy, które spełniają predykat predicate. W przypadku, gdy węzeł
+    niespełniający predykatu ma dwójkę dzieci, to prawe poddrzewo podpinane
+    jest do prawego skrajnego węzła w lewym poddrzewie.
+
+* map(transformer)
+    Tworzy nowe drzewo Tree na podstawie istniejącego, zawierające wszystkie
+    elementy po transformacji tj. po zaaplikowaniu funkcji transformer.
+
+* lazy_map(transformer)
+    Tworzy nowe drzewo Tree na podstawie istniejącego, zawierające wszystkie
+    elementy po transformacji tj. po zaaplikowaniu funkcji transformer.
+    Transformacja ma być realizowana leniwie i tylko raz tzn. funkcja
+    transformer ma być wykonywana tylko raz dopiero w momencie pierwszego
+    dostępu do wartości w węźle.
+
+* accumulate(operation, init, traversal)
+    Oblicza i zwraca wynik operacji binarnej operation wykonanej na wartości
+    init oraz wszystkich elementach drzewa zgodnie z porządkiem traversal.
+
+* apply(operation, traversal)
+    Aplikuje funkcje operation do wszystkich elementów danego drzewa zgodnie
+    z porządkiem traversal.
+
+Dodatkowo za pomocą operacji funkcyjnych należy zaimplementować typowe operacje
+na drzewie:
+
+* height()
+    Oblicza wysokość drzewa.
+
+* size()
+    Oblicza liczbę niepustych węzłów drzewa.
+
+* is_bst()
+    Sprawdza, czy drzewo jest drzewem BST.
+
+* print(traversal)
+    Wypisuje elementy drzewa zgodnie z porządkiem określonym przez traversal.
+    Domyślnie powinien być to porządek infiksowy (ang. in-order).
+
+Pomocnicze składowe klasy reprezentujące porządek przechodzenia to:
+
+* inorder
+    Funkcja określająca porządek przechodzenie infiksowy (ang. in-order).
+
+* postorder
+    Funkcja określającą porządek przechodzenie postfiksowy (ang. post-order).
+
+* preorder
+    Funkcja określającą porządek przechodzenie prefiksowy (ang. pre-order).
+
+Pomocnicze składowe klasy tworzące węzły drzewa to:
+
+* createEmptyNode()
+    Funkcja tworząca pusty węzeł drzewa.
+
+* createValueNode(value)
+    Funkcja tworząca węzeł będący liściem drzewa o wartości value.
+
+* createValueNode(value, left, right)
+    Funkcja tworząca węzeł drzewa o wartości value z lewym synem left
+    oraz prawym synem right.
+
+Konstruktory dla drzewa:
+
+* Tree()
+    Tworzy puste drzewo.
+
+* Tree(root)
+    Tworzy nowe drzewo z korzeniem w węźle root.
+
+* Tree(Tree const& tree)
+    Tworzy nowe drzewo będące głęboką kopią drzewa tree.
+
+Pozostałe konstruktory w miarę potrzeb.
+
+== Przykład użycia ==
+
+Przykład użycia znajduje się w pliku tree_examle.cc.
+Wynik działania przykładu to:
+
+1 2 3 4 5
+3 1 2 5 4
+2 1 4 5 3
+size: 5
+height: 3
+bst: 1
+custom print: 1:2:3:4:5:
+-2: -1 0 1 2 3
+-4: -3 -2 -1 0 1
+odd: -1 1 3
+sum: 15
+sum: 15
+
+== Rozwiązanie ==
+
+Rozwiązanie powinno składać się z jednego pliku tree.h.
+Plik ten należy umieścić w repozytorium w katalogu
+
+grupaN/zadanie7/ab123456
+
+gdzie N jest numerem grupy, a ab123456 identyfikatorem rozwiązującego.
+Katalog z rozwiązaniem nie powinien zawierać innych plików, ale może
+zawierać podkatalog private, gdzie można umieszczać różne pliki, np.
+swoje testy. Pliki umieszczone w tym podkatalogu nie będą oceniane.
