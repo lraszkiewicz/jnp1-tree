@@ -28,10 +28,11 @@ int main(int argc, const char * argv[]) {
 
     int x = 2;
     Tree<int> minus_x = tree.map([&](int e)->int{return e - x;});
+    Tree<int> minus_x_2 = tree.map([&](int e)->int{return e - x;});
     Tree<int> lazy_minus_x = tree.lazy_map([&](int e)->int{return e - x;});
     x = 4;
     std::cout << "-2: ";
-    minus_x.print();
+    minus_x_2.print();
     std::cout << "-4: ";
     lazy_minus_x.print();
 
